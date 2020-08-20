@@ -6,10 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".PaintDemoActivity">
 
-    <fragment
+
+<!--第一个是fragment 使用示例-->
+ <!--   <fragment
         android:id="@+id/main_fragment"
         class="android.king.signature.fragment.PaintFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></fragment>
+        android:layout_height="match_parent"></fragment>-->
+
+<!--自定义控件的形式提供-->
+    <android.king.signature.handWriteView.HandWriteView
+        android:id="@+id/myHandWrite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </android.support.constraint.ConstraintLayout>
