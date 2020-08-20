@@ -255,8 +255,8 @@ import android.widget.Toast;
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.btn_setting) {
-            showPaintSettingWindow();
-
+           // showPaintSettingWindow();
+    select();
         } else if (i == R.id.btn_hand) {
             //切换是否允许写字
             mPaintView.setFingerEnable(!mPaintView.isFingerEnable());
@@ -267,22 +267,23 @@ import android.widget.Toast;
             }
 
         } else if (i == R.id.btn_clear) {
-            mPaintView.reset();
-
+        //    mPaintView.reset();
+             delete();
         } else if (i == R.id.btn_undo) {
-            mPaintView.undo();
-
+         //   mPaintView.undo();
+            lastStep();
         } else if (i == R.id.btn_redo) {
-            mPaintView.redo();
-
+         //   mPaintView.redo();
+         nextStep();
         } else if (i == R.id.btn_pen) {
-            if (!mPaintView.isEraser()) {
+           /* if (!mPaintView.isEraser()) {
                 mPaintView.setPenType(PaintView.TYPE_ERASER);
                 BitmapUtil.setImage(mPenView, R.drawable.sign_ic_eraser, PenConfig.THEME_COLOR);
             } else {
                 mPaintView.setPenType(PaintView.TYPE_PEN);
                 BitmapUtil.setImage(mPenView, R.drawable.sign_ic_pen, PenConfig.THEME_COLOR);
-            }
+            }*/
+           eraser();
         } else if (i == R.id.tv_ok) {
             save();
 
