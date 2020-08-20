@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         }
         initView();
 
-        //主题颜色配置
+        //主题颜色配置,设置主题颜色
         PenConfig.THEME_COLOR = Color.parseColor("#0c53ab");
     }
 
