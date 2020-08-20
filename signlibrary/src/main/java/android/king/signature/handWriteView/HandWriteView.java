@@ -14,6 +14,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.king.signature.R;
 import android.king.signature.config.PenConfig;
+import android.king.signature.interf.HandWriteInterf;
 import android.king.signature.util.BitmapUtil;
 import android.king.signature.util.DisplayUtil;
 import android.king.signature.util.StatusBarCompat;
@@ -37,7 +38,7 @@ import android.widget.Toast;
 
 /*
  *Created by Chenji on 2020/8/20
- */ public class HandWriteView extends RelativeLayout implements View.OnClickListener, PaintView.StepCallback  {
+ */ public class HandWriteView extends RelativeLayout implements View.OnClickListener, PaintView.StepCallback, HandWriteInterf {
 
     /**
      * 画布最大宽度
@@ -450,7 +451,35 @@ import android.widget.Toast;
         builder.show();
     }
 
-
-
-
+   /*上一步*/
+    @Override
+    public void lastStep() {
+        mPaintView.undo();
+    }
+     /*下一步*/
+    @Override
+    public void nextStep() {
+        mPaintView.redo();
+    }
+    /*擦除*/
+    @Override
+    public void eraser() {
+        if (!mPaintView.isEraser()) {
+            mPaintView.setPenType(PaintView.TYPE_ERASER);
+            BitmapUtil.setImage(mPenView, R.drawable.sign_ic_eraser, PenConfig.THEME_COLOR);
+        } else {
+            mPaintView.setPenType(PaintView.TYPE_PEN);
+            BitmapUtil.setImage(mPenView, R.drawable.sign_ic_pen, PenConfig.THEME_COLOR);
+        }
+    }
+    /*删除*/
+    @Override
+    public void delete() {
+        mPaintView.reset();
+    }
+/*选择*/
+    @Override
+    public void select() {
+        showPaintSettingWindow();
+    }
 }
