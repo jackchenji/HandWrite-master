@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.king.signature.GridPaintActivity;
 import android.king.signature.PaintActivity;
+import android.king.signature.PaintDemoActivity;
 import android.king.signature.config.PenConfig;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.PermissionChecker;
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         if (!isPermissionOk) {
             return;
         }
-        Intent intent = new Intent(this, PaintActivity.class);
+        Intent intent = new Intent(this, PaintDemoActivity.class);
 
 //        intent.putExtra("background", Color.WHITE);//画布背景色，默认透明，也是最终生成图片的背景色
 
