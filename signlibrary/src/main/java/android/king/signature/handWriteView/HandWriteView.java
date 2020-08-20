@@ -478,7 +478,7 @@ import android.widget.Toast;
     public void delete() {
         mPaintView.reset();
     }
-/*选择*/
+/*选择颜色板*/
     @Override
     public void select() {
         showPaintSettingWindow();
